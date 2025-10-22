@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/ui/Header.astro';
+import Footer from '../components/ui/Footer.astro';
+import PhotoGrid from '../components/gallery/PhotoGrid.astro';
+import { galleryPhotos } from '../data/gallery.js';
+---
+
+<Layout 
+  title="Photo Gallery - Global Labor Export" 
+  description="Browse our photo gallery showcasing training sessions, graduations, successful placements, and events from GlobalWork Labor Export."
+  canonical="https://globalwork-labor.com/gallery"
+>
+  <Header />
+  
+  <!-- Gallery Hero -->
+  <section class="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-20">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Photo Gallery</h1>
+      <p class="text-xl md:text-2xl opacity-95 max-w-3xl mx-auto">
+        Visual journey of success stories and global opportunities
+      </p>
+    </div>
+  </section>
+
+  <PhotoGrid photos={galleryPhotos} />
+  
+  <Footer />
+</Layout>

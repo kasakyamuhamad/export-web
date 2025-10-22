@@ -1,0 +1,84 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/ui/Header.astro';
+import Footer from '../../components/ui/Footer.astro';
+import BlogGrid from '../../components/blog/BlogGrid.astro';
+
+const blogPosts = [
+  {
+    slug: 'global-labor-trends-2024',
+    title: 'Global Labor Market Trends in 2024',
+    excerpt: 'Discover the latest trends shaping international labor markets and opportunities for skilled workers worldwide in the post-pandemic era.',
+    date: 'March 15, 2024',
+    category: 'Market Insights',
+    readTime: '5 min read'
+  },
+  {
+    slug: 'visa-process-simplified',
+    title: 'Visa Processing Simplified: A Complete Guide',
+    excerpt: 'Everything you need to know about work visa requirements, processing times, and documentation for major destination countries.',
+    date: 'March 10, 2024',
+    category: 'Visa Guide',
+    readTime: '7 min read'
+  },
+  {
+    slug: 'skills-in-demand',
+    title: 'Top 10 Skills in Demand for International Jobs',
+    excerpt: 'Learn which technical and soft skills are most sought after by employers worldwide in 2024 across different industries.',
+    date: 'March 5, 2024',
+    category: 'Career Tips',
+    readTime: '4 min read'
+  },
+  {
+    slug: 'cultural-adaptation',
+    title: 'Cultural Adaptation: Thriving in Your New Work Environment',
+    excerpt: 'Essential tips for adapting to new cultures, work environments, and social norms when working abroad.',
+    date: 'February 28, 2024',
+    category: 'Living Abroad',
+    readTime: '6 min read'
+  },
+  {
+    slug: 'contract-negotiation',
+    title: 'International Contract Negotiation: What You Need to Know',
+    excerpt: 'Key points to consider when negotiating employment contracts, benefits, and compensation for overseas positions.',
+    date: 'February 20, 2024',
+    category: 'Career Tips',
+    readTime: '5 min read'
+  },
+  {
+    slug: 'healthcare-abroad',
+    title: 'Healthcare and Insurance for Overseas Workers',
+    excerpt: 'Understanding healthcare systems, insurance requirements, and medical coverage when working internationally.',
+    date: 'February 15, 2024',
+    category: 'Living Abroad',
+    readTime: '8 min read'
+  }
+];
+---
+
+<Layout 
+  title="Blog - Global Employment Insights" 
+  description="Latest news, trends, and insights about global employment opportunities, visa processes, and international career development."
+  canonical="https://globalwork-labor.com/blog"
+>
+  <Header />
+  
+  <!-- Blog Header -->
+  <section class="bg-gradient-to-r from-primary-600 to-primary-800 text-white py-20">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Our Blog</h1>
+      <p class="text-xl md:text-2xl opacity-95 max-w-3xl mx-auto leading-relaxed">
+        Insights, tips, and updates about global employment opportunities and labor market trends
+      </p>
+    </div>
+  </section>
+
+  <!-- Blog Posts -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <BlogGrid posts={blogPosts} />
+    </div>
+  </section>
+  
+  <Footer />
+</Layout>

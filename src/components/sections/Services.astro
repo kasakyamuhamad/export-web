@@ -1,0 +1,97 @@
+---
+const services = [
+  {
+    icon: `
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+      </svg>
+    `,
+    title: "Skilled Labor Export",
+    description: "Place skilled professionals in construction, manufacturing, IT, and technical roles across 50+ countries.",
+    features: ["Construction Workers", "IT Professionals", "Engineers", "Healthcare Staff"]
+  },
+  {
+    icon: `
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+      </svg>
+    `,
+    title: "Domestic Staff",
+    description: "Qualified domestic workers, caregivers, and hospitality staff for international households and hotels.",
+    features: ["Housekeepers", "Caregivers", "Chefs", "Drivers"]
+  },
+  {
+    icon: `
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+      </svg>
+    `,
+    title: "Global Recruitment",
+    description: "End-to-end recruitment solutions for employers seeking international talent across different continents.",
+    features: ["Talent Sourcing", "Screening", "Interviews", "Placement"]
+  },
+  {
+    icon: `
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+      </svg>
+    `,
+    title: "Visa & Documentation",
+    description: "Comprehensive visa processing and documentation support for seamless international relocation.",
+    features: ["Work Permits", "Visa Processing", "Documentation", "Legal Support"]
+  }
+];
+---
+
+<section id="services" class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+        Our <span class="text-primary-600">Services</span>
+      </h2>
+      <p class="text-xl text-gray-600 leading-relaxed">
+        Comprehensive labor export solutions tailored to meet global workforce demands and individual career aspirations.
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      {services.map((service, index) => (
+        <div 
+          class="group bg-gradient-to-br from-white to-gray-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 hover:border-primary-200 relative overflow-hidden"
+        >
+          <!-- Background decoration -->
+          <div class="absolute top-0 right-0 w-20 h-20 bg-primary-50 rounded-full -translate-y-10 translate-x-10 group-hover:scale-150 transition-transform duration-500"></div>
+          
+          <!-- Icon -->
+          <div class="text-primary-600 mb-6 w-14 h-14 bg-primary-50 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+            <span set:html={service.icon} class="w-8 h-8"></span>
+          </div>
+          
+          <!-- Content -->
+          <h3 class="text-2xl font-bold text-gray-900 mb-4 group-hover:text-primary-700 transition-colors">
+            {service.title}
+          </h3>
+          
+          <p class="text-gray-600 mb-6 leading-relaxed">
+            {service.description}
+          </p>
+          
+          <!-- Features -->
+          <ul class="space-y-2">
+            {service.features.map((feature) => (
+              <li class="flex items-center text-gray-700">
+                <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                {feature}
+              </li>
+            ))}
+          </ul>
+          
+          <!-- Hover effect border -->
+          <div class="absolute inset-0 border-2 border-transparent group-hover:border-primary-200 rounded-2xl transition-colors duration-300 pointer-events-none"></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
