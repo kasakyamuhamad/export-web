@@ -1,0 +1,93 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/ui/Header.astro';
+import Footer from '../components/ui/Footer.astro';
+import Hero from '../components/sections/Hero.astro';
+import Services from '../components/sections/Services.astro';
+import BlogGrid from '../components/blog/BlogGrid.astro';
+import PhotoGrid from '../components/gallery/PhotoGrid.astro';
+import { galleryPhotos } from '../data/gallery.js';
+
+type Post = {
+  title: string;
+  slug: string;
+  date?: string;
+  excerpt?: string;
+  tags?: string[];
+  cover?: string;
+};
+
+const featuredPosts: Post[] = [
+  // ... existing posts
+];
+
+// Get only 8 photos for homepage
+const featuredPhotos = galleryPhotos.slice(0, 8);
+---
+
+<Layout 
+  title="Global Talent Solutions" 
+  description="Connecting skilled professionals with international opportunities. Your gateway to global employment across 50+ countries."
+>
+  <Header />
+  <Hero />
+  <Services />
+  
+  <!-- Photo Gallery Section on Homepage -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Photo <span class="text-primary-600">Gallery</span>
+        </h2>
+        <p class="text-xl text-gray-600">
+          Glimpses of our training programs, graduations, and successful international placements
+        </p>
+      </div>
+      
+      <PhotoGrid photos={featuredPhotos} />
+      
+      <div class="text-center mt-12">
+        <a 
+          href="/gallery"
+          class="inline-flex items-center bg-primary-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-primary-700 transition-colors shadow-lg hover:shadow-xl"
+        >
+          View Full Gallery
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Blog Section -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Latest <span class="text-primary-600">Insights</span>
+        </h2>
+        <p class="text-xl text-gray-600">
+          Stay updated with the latest news, trends, and insights about global employment opportunities
+        </p>
+      </div>
+      
+      <BlogGrid posts={featuredPosts} />
+      
+      <div class="text-center mt-12">
+        <a 
+          href="/blog"
+          class="inline-flex items-center bg-primary-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-primary-700 transition-colors shadow-lg hover:shadow-xl"
+        >
+          View All Articles
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <Footer />
+</Layout>

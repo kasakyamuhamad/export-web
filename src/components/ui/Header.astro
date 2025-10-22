@@ -1,0 +1,85 @@
+---
+import MobileMenu from './MobileMenu.jsx';
+---
+
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
+  <!-- Top Bar - Simplified -->
+  <div class="bg-primary-800 text-white py-2">
+    <div class="container mx-auto px-4 flex justify-center items-center text-sm">
+      <div class="flex items-center space-x-6">
+        <div class="flex items-center">
+          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+          </svg>
+          <span>+256-783-106-668</span>
+        </div>
+        <div class="hidden sm:flex items-center">
+          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+          <span>zuhyre13@gmail.com</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation -->
+  <nav class="container mx-auto px-4 py-3">
+    <div class="flex justify-between items-center">
+      <!-- Logo -->
+      <a href="/" class="flex items-center space-x-3 flex-shrink-0">
+        <div class="bg-primary-600 text-white p-2 rounded-lg">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <div class="hidden sm:block">
+          <span class="text-xl font-bold text-gray-900">GlobalWork</span>
+        </div>
+      </a>
+
+      <!-- Desktop Menu - Optimized -->
+      <div class="hidden lg:flex items-center space-x-6">
+        <a href="/" class="text-gray-700 hover:text-primary-600 font-medium transition-colors py-2">Home</a>
+        
+        <!-- Services Dropdown -->
+        <div class="relative group">
+          <button class="flex items-center text-gray-700 hover:text-primary-600 font-medium transition-colors py-2">
+            <span>Services</span>
+            <svg class="w-4 h-4 ml-1 transform group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+            <div class="py-2">
+              <a href="/services" class="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors">All Services</a>
+              <a href="/services#skilled-labor" class="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors">Skilled Labor</a>
+              <a href="/services#domestic-staff" class="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors">Domestic Staff</a>
+              <a href="/services#visa" class="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors">Visa Processing</a>
+            </div>
+          </div>
+        </div>
+
+        <a href="/gallery" class="text-gray-700 hover:text-primary-600 font-medium transition-colors py-2">Gallery</a>
+        <a href="/blog" class="text-gray-700 hover:text-primary-600 font-medium transition-colors py-2">Blog</a>
+        <a href="/about" class="text-gray-700 hover:text-primary-600 font-medium transition-colors py-2">About</a>
+        <a href="/contact" class="bg-primary-600 text-white px-5 py-2 rounded-lg hover:bg-primary-700 transition-colors font-semibold text-nowrap">
+          Contact
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="lg:hidden">
+        <MobileMenu />
+      </div>
+    </div>
+  </nav>
+</header>
+
+<style>
+  .sticky {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+</style>

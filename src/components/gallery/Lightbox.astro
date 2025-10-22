@@ -1,0 +1,116 @@
+---
+---
+
+<!-- Lightbox Modal -->
+<div id="lightbox" class="fixed inset-0 bg-black/90 z-50 hidden items-center justify-center p-4">
+  <div class="relative max-w-4xl max-h-full w-full">
+    <!-- Close Button -->
+    <button id="lightbox-close" class="absolute -top-4 -right-4 bg-white rounded-full p-2 hover:bg-gray-100 transition-colors z-10">
+      <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+    
+    <!-- Navigation Buttons -->
+    <button id="lightbox-prev" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 hover:bg-gray-100 transition-colors">
+      <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+      </svg>
+    </button>
+    
+    <button id="lightbox-next" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 hover:bg-gray-100 transition-colors">
+      <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+      </svg>
+    </button>
+    
+    <!-- Image Container -->
+    <div class="bg-white rounded-xl overflow-hidden">
+      <img id="lightbox-image" src="" alt="" class="w-full h-auto max-h-[70vh] object-contain">
+      <div class="p-4">
+        <h3 id="lightbox-title" class="text-xl font-bold text-gray-900 mb-2"></h3>
+        <p id="lightbox-date" class="text-gray-600"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+// Lightbox functionality
+class PhotoLightbox {
+  constructor() {
+    this.currentIndex = 0;
+    this.photos = [];
+    this.init();
+  }
+  
+  init() {
+    // Get all photos from the page
+    this.photos = Array.from(document.querySelectorAll('[data-photo-id]')).map(card => ({
+      id: parseInt(card.dataset.photoId),
+      image: card.querySelector('img')?.src || '',
+      title: card.querySelector('h3')?.textContent || '',
+      date: card.querySelector('span')?.textContent || ''
+    }));
+    
+    // Event listeners
+    document.getElementById('lightbox-close')?.addEventListener('click', () => this.close());
+    document.getElementById('lightbox-prev')?.addEventListener('click', () => this.previous());
+    document.getElementById('lightbox-next')?.addEventListener('click', () => this.next());
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') this.close();
+      if (e.key === 'ArrowLeft') this.previous();
+      if (e.key === 'ArrowRight') this.next();
+    });
+    
+    // Close on background click
+    document.getElementById('lightbox')?.addEventListener('click', (e) => {
+      if (e.target.id === 'lightbox') this.close();
+    });
+  }
+  
+  open(index) {
+    this.currentIndex = index;
+    const photo = this.photos[index];
+    
+    if (photo) {
+      document.getElementById('lightbox-image').src = photo.image;
+      document.getElementById('lightbox-title').textContent = photo.title;
+      document.getElementById('lightbox-date').textContent = photo.date;
+      document.getElementById('lightbox').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+  
+  close() {
+    document.getElementById('lightbox').classList.add('hidden');
+    document.body.style.overflow = 'auto';
+  }
+  
+  next() {
+    this.currentIndex = (this.currentIndex + 1) % this.photos.length;
+    this.open(this.currentIndex);
+  }
+  
+  previous() {
+    this.currentIndex = (this.currentIndex - 1 + this.photos.length) % this.photos.length;
+    this.open(this.currentIndex);
+  }
+}
+
+// Global function to open lightbox
+window.openLightbox = function(photoId) {
+  const lightbox = new PhotoLightbox();
+  const index = lightbox.photos.findIndex(photo => photo.id === photoId);
+  if (index !== -1) {
+    lightbox.open(index);
+  }
+};
+
+// Initialize lightbox when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  new PhotoLightbox();
+});
+</script>

@@ -1,0 +1,85 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/ui/Header.astro';
+import Footer from '../components/ui/Footer.astro';
+import Services from '../components/sections/Services.astro';
+---
+
+<Layout 
+  title="Our Services - Global Labor Export" 
+  description="Comprehensive labor export services including skilled labor placement, domestic staff recruitment, visa processing, and global talent solutions."
+>
+  <Header />
+  
+  <!-- Services Hero -->
+  <section class="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-20">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Our Services</h1>
+      <p class="text-xl md:text-2xl opacity-95 max-w-3xl mx-auto">
+        Comprehensive labor export solutions tailored to meet global workforce demands
+      </p>
+    </div>
+  </section>
+
+  <ServicesSection />
+  
+  <!-- Additional Services Info -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            End-to-End <span class="text-primary-600">Solutions</span>
+          </h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            From initial recruitment to successful placement and ongoing support, we manage every aspect of the labor export process. Our comprehensive approach ensures both employers and employees achieve their goals.
+          </p>
+          <div class="space-y-4">
+            <div class="flex items-start">
+              <div class="bg-green-100 p-2 rounded-lg mr-4">
+                <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-900 mb-1">Comprehensive Screening</h4>
+                <p class="text-gray-600">Rigorous background checks and skill verification</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <div class="bg-green-100 p-2 rounded-lg mr-4">
+                <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-900 mb-1">Legal Compliance</h4>
+                <p class="text-gray-600">Full compliance with international labor laws and regulations</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <div class="bg-green-100 p-2 rounded-lg mr-4">
+                <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-900 mb-1">24/7 Support</h4>
+                <p class="text-gray-600">Round-the-clock support for both employers and employees</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-gradient-to-br from-primary-500 to-primary-700 rounded-2xl p-8 text-white">
+          <h3 class="text-2xl font-bold mb-4">Ready to Get Started?</h3>
+          <p class="mb-6 opacity-95">Contact us today to discuss your labor export needs and discover how we can help you achieve your international workforce goals.</p>
+          <a href="/contact" class="bg-white text-primary-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-block">
+            Get Free Consultation
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <Footer />
+</Layout>
